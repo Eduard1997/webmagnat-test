@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/get-poll-options', 'PollController@getPollOptions');
+Route::get('/save-answer', 'PollController@saveAnswer');
