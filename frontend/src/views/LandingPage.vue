@@ -78,7 +78,7 @@ name: "LandingPage",
   },
   methods: {
     getPollOptions() {
-      axios.get('http://localhost:80/get-poll-options').then((response) => {
+      axios.get('http://localhost:8000/get-poll-options').then((response) => {
         this.pollOptions = response.data.poll_options;
         this.loading = false;
         this.displayForm = true;
@@ -88,7 +88,7 @@ name: "LandingPage",
       this.loading = true;
       this.displayForm = false;
       this.showSubmit = false;
-      axios.get('http://localhost:80/save-answer?answer=' + this.selectedAnswer).then((response) => {
+      axios.get('http://localhost:8000/save-answer?answer=' + this.selectedAnswer).then((response) => {
         if(response.data.success !== 'undefined') {
           this.goodPercent = response.data.percents.goodAnswerPercent;
           this.badPercent = response.data.percents.badAnswersPercent;
@@ -109,7 +109,7 @@ name: "LandingPage",
       this.displayForm = true;
       this.showPercents = false;
       this.showSubmit = true;
-      this.cardTitle = 'Thank you! Do you want to vote again?';
+      this.cardTitle = 'How do you find our service?';
       this.selectedAnswer = '';
       this.voteAgain = false;
     }
